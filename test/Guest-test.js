@@ -1,6 +1,6 @@
 import chai from 'chai';
 const expect = chai.expect;
-import Guest from './src/Guest'
+import Guest from './src/classes/Guest'
 
 
 describe('Guest', () => {
@@ -26,7 +26,7 @@ describe('Guest', () => {
   });
 
   it.skip('should have a way to get all of a travelers bookings', () => {
-    
+
   })
 
   it.skip('should have way to get the total amount spent at the hotel', () => {
