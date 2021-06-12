@@ -16,14 +16,14 @@ const testBookings = [
   {
     "id": "5fwrgu4i7k55hl6t6",
     "userID": 2,
-    "date": "2020/01/10",
+    "date": "2020/01/24",
     "roomNumber": 3,
     "roomServiceCharges": []
   },
   {
     "id": "5fwrgu4i7k55hl6t7",
     "userID": 2,
-    "date": "2020/02/16",
+    "date": "2020/01/24",
     "roomNumber": 1,
     "roomServiceCharges": []
   },
