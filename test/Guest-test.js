@@ -1,12 +1,14 @@
 import chai from 'chai';
 const expect = chai.expect;
 import Guest from './src/classes/Guest'
+import testUsers from './test-data/test-users'
 
 
 describe('Guest', () => {
+  let guest;
 
   beforeEach() => {
-
+    guest = new Guest(testUsers[0])
   }
 
   it.skip('should be a function', () => {
@@ -18,19 +20,18 @@ describe('Guest', () => {
   });
 
   it.skip('should have an id', () => {
+    expect(guest).to.have.a.property('id');
     expect(guest.id).to.equal(1);
   });
 
   it.skip('should have a name', () => {
+    expect(guest).to.have.a.property('name');
     expect(guest.name).to.equal('Leatha Ullrich');
   });
 
-  it.skip('should have a way to get all of a travelers bookings', () => {
-
-  })
-
-  it.skip('should have way to get the total amount spent at the hotel', () => {
-
+  it.skip('should have a way to store all of a guests bookings', () => {
+    expect(guest).to.have.a.property('bookings');
+    expect(guest.bookings).to.deep.equal([]);
   })
 
 })
