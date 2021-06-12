@@ -42,13 +42,18 @@ describe.only('Room', () => {
     expect(room.bedSize).to.equal('queen');
   })
 
-  it.skip('should tell the number of beds', () => {
+  it('should tell the number of beds', () => {
     expect(room).to.have.a.property('numBeds');
     expect(room.numBeds).to.equal(1);
   });
 
-  it.skip('should have a cost per night', () => {
+  it('should have a cost per night', () => {
     expect(room).to.have.a.property('costPerNight');
     expect(room.costPerNight).to.equal(358.4);
+  });
+
+  it('should be available by default', () => {
+    expect(room).to.have.a.property('isAvailable');
+    expect(room.isAvailable).to.equal(true);
   });
 })
