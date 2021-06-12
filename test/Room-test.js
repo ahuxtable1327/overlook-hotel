@@ -5,7 +5,7 @@ import testRooms from './test-data/test-rooms';
 import Room from '../src/classes/Room';
 
 
-describe('Room', () => {
+describe.only('Room', () => {
   let room, room2;
 
   beforeEach(() => {
@@ -13,20 +13,20 @@ describe('Room', () => {
     room2 = new Room(testRooms[1]);
   });
 
-  it.skip('should be a function', () => {
+  it('should be a function', () => {
     expect(Room).to.be.a('function');
   })
 
-  it.skip('should be an instance of Room', () => {
+  it('should be an instance of Room', () => {
     expect(room).to.be.an.instanceof(Room);
   })
 
-  it.skip('should have a room number', () => {
+  it('should have a room number', () => {
     expect(room).to.have.a.property('number');
     expect(room.number).to.equal(1);
   });
 
-  it.skip('should have a room type', () => {
+  it('should have a room type', () => {
     expect(room).to.have.a.property('roomType');
     expect(room.roomType).to.equal('residential suite');
   });
