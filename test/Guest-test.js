@@ -4,7 +4,7 @@ import Guest from '../src/classes/Guest'
 import testUsers from './test-data/test-users'
 
 
-describe.only('Guest', () => {
+describe('Guest', () => {
   let guest;
 
   beforeEach(() => {
