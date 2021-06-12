@@ -31,13 +31,13 @@ describe.only('Room', () => {
     expect(room.roomType).to.equal('residential suite');
   });
 
-  it.skip('should state whether it has a bidet or not', () => {
+  it('should state whether it has a bidet or not', () => {
     expect(room).to.have.a.property('bidet');
     expect(room.bidet).to.equal(true);
     expect(room2.bidet).to.equal(false);
   });
 
-  it.skip('should have a bed size', () => {
+  it('should have a bed size', () => {
     expect(room).to.have.a.property('bedSize');
     expect(room.bedSize).to.equal('queen');
   })

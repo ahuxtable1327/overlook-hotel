@@ -3,7 +3,7 @@ class Room {
     this.number = room.number;
     this.roomType = room.roomType;
     this.bidet = room.bidet;
-
+    this.bedSize = room.bedSize;
 
   }
 }
