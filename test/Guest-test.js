@@ -1,15 +1,15 @@
 import chai from 'chai';
 const expect = chai.expect;
-import Guest from './src/classes/Guest'
+import Guest from '../src/classes/Guest'
 import testUsers from './test-data/test-users'
 
 
-describe('Guest', () => {
+describe.only('Guest', () => {
   let guest;
 
-  beforeEach() => {
+  beforeEach(() => {
     guest = new Guest(testUsers[0])
-  }
+  });
 
   it.skip('should be a function', () => {
     expect(Guest).to.be.a('function');

@@ -1,17 +1,17 @@
 import chai from 'chai';
 const expect = chai.expect;
-import testRooms from './test/test-rooms';
+import testRooms from './test-data/test-rooms';
 
-import Room from './src/classes/Room';
+import Room from '../src/classes/Room';
 
 
 describe('Room', () => {
-`   `let room, room2;
+  let room, room2;
 
-  beforeEach() => {
+  beforeEach(() => {
     room = new Room(testRooms[0]);
     room2 = new Room(testRooms[1]);
-  }
+  });
 
   it.skip('should be a function', () => {
     expect(Room).to.be.a('function');

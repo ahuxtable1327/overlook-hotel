@@ -24,3 +24,5 @@ const testRooms = [
     "costPerNight": 491.14
   }
 ]
+
+export default testRooms;

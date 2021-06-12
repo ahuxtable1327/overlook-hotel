@@ -56,3 +56,5 @@ const testBookings = [
     "roomServiceCharges": []
   }
 ]
+
+export default testBookings;

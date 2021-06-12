@@ -1,8 +1,8 @@
 import chai from 'chai';
 const expect = chai.expect;
-import Hotel from './src/classes/Hotel'
-import Room from './src/classes/Room'
-import Booking from './src/classes/Booking'
+import Hotel from '../src/classes/Hotel'
+import Room from '../src/classes/Room'
+import Booking from '../src/classes/Booking'
 import testBookings from './test-data/test-bookings'
 import testRooms from './test-data/test-rooms'
 import testUsers from './test-data/test-users'
@@ -12,13 +12,13 @@ import testUsers from './test-data/test-users'
 describe('Hotel', () => {
   let hotel, room1, room2, room3, booking, guest;
 
-  beforeEach() => {
+  beforeEach(() => {
     room1 = testRooms[0];
     room2 = testRooms[1];
     room3 = testRooms[2];
     guest = new Guest(testUsers[0])
     hotel = new Hotel(testRooms, testBookings);
-  }
+  });
 
   it.skip('should be a function', () => {
     expect(Hotel).to.be.a('function');
