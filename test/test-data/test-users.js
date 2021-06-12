@@ -12,3 +12,5 @@ const testUsers = [
     "name": "Kelvin Schiller"
   }
 ]
+
+export default testUsers;

@@ -1,5 +1,8 @@
 class Guest {
-  constructor(guest, bookingRepo) {
+  constructor(guest) {
+    this.id = guest.id;
+    this.name = guest.name;
+    this.bookings = [];
 
   }
 }
