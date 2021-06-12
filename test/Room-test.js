@@ -5,7 +5,7 @@ import testRooms from './test-data/test-rooms';
 import Room from '../src/classes/Room';
 
 
-describe.only('Room', () => {
+describe('Room', () => {
   let room, room2;
 
   beforeEach(() => {
