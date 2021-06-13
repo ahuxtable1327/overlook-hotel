@@ -15,7 +15,19 @@ class Hotel {
     return this.rooms.find(room => room.number === booking.roomNumber)
   }
 
-  
+  calculateGuestAmntSpent(guest) {
+    let bookings = this.getGuestBookings(guest);
+    let rooms = [];
+    bookings.forEach(booking => {
+      rooms.push(this.getRoomInformation(booking))
+    });
+    return rooms.reduce((amntSpent, currentRoom) => {
+      amntSpent += currentRoom.costPerNight
+      return amntSpent;
+    }, 0);
+  }
+
+
 
 
 }
