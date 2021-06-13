@@ -23,8 +23,8 @@ class Hotel {
     });
     return rooms.reduce((amntSpent, currentRoom) => {
       amntSpent += currentRoom.costPerNight
-      return amntSpent;
-    }, 0);
+      return amntSpent
+    }, 0).toFixed(2);
   }
 
   getAvailableRooms(date) {

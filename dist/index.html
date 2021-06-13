@@ -16,20 +16,22 @@
   </header>
     <main>
       <section class="main-greeting">
-        <h2>Welcome to the Overlook Hotel!</h2>
-        <p>Click here to book a new trip! Otherwise, scroll down to view past bookings.</p>
+        <h2 class="greeting" id="greeting">Welcome to the Overlook Hotel!</h2>
+        <p>Click here to book a new trip! Otherwise, scroll down to view rooms.</p>
         <button>Book Your Stay</button>
       </section>
-      <section class="booking-cards">
+      <section class="trip-costs" id="totalGuestCosts">
+        <h4>Total spent at Overlook:</h4>
+      </section>
+      <section class="booking-cards" id="bookingCards">
         <article class="booking">
           <h3>Booking Type</h3>
           <img src="" alt="">
-          <p class="date">date</p>
-          <p class="room-type">room type</p>
+          <p class="room-info" id="bookDate">date</p>
+          <p class="room-info" id="roomType">room type</p>
+          <p class="room-info" id="bedInfo">number and size</p>
+          <p class="room-info" id="costPerNight">costPerNight</p>
         </article>
-      </section>
-      <section class="trip-costs">
-        <h4>Total spent at Overlook:</h4>
       </section>
       <img src="./images/turing-logo.png" alt="hotel image" height="100px" width="100px">
     </main>
