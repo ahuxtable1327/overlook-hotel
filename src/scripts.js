@@ -14,8 +14,11 @@ let dayjs = require('dayjs');
 let guest, hotel;
 let guestData, rooms, bookings;
 
+const bookStay = document.getElementById('bookStay')
+
 
 window.addEventListener('load', loadPageInfo);
+bookStay.addEventListener('click', displayBookingPage)
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 
@@ -25,11 +28,12 @@ function loadPageInfo(){
       guestData = response[0].customers;
       rooms = response[1].rooms;
       bookings = response[2].bookings;
-      console.log(guestData, rooms, bookings)
       guest = new Guest(guestData[5]);
       hotel = new Hotel(rooms, bookings)
       domUpdates.displayGuestDashboard(guest, rooms, bookings, hotel)
     })
 }
 
-  console.log('This is the JavaScript entry file - your code begins here.');
+function displayBookingPage() {
+  domUpdates.renderBookingPage();
+}

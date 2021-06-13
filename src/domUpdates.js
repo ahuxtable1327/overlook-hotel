@@ -5,6 +5,11 @@ import Room from './classes/Room'
 
 let dayjs = require('dayjs');
 const todaysDate = dayjs('2021/6/13')
+let today = new Date()
+
+const greeting = document.getElementById('greeting');
+const main = document.getElementById('main')
+
 
 
 
@@ -20,7 +25,6 @@ const domUpdates = {
 
   displayGuestDashboard(guest, bookings, rooms, hotel) {
     const bookingCards = document.getElementById('bookingCards');
-    const greeting = document.getElementById('greeting');
     const totalGuestCosts = document.getElementById('totalGuestCosts');
     let bookingType;
 
@@ -35,14 +39,14 @@ const domUpdates = {
     hotel.getGuestBookings(guest).forEach(booking => {
       let room = hotel.getRoomInformation(booking);
       bookingType = 'Past Trip'
-      // const bookDate = dayjs(booking.)
-      // if(bookDate.isBefore(todaysDate)){
-      //   bookingType = 'Past Trip'
-      // }
-      // if(bookDate.isSame(todaysDate) ||
-      //   bookDate.isAfter(todaysDate)) {
-      //     bookingType = 'Upcoming Trips'
-      //   }
+      const bookDate = dayjs(booking.date)
+      if(bookDate.isBefore(today)){
+        bookingType = 'Past Trip'
+      }
+      if(bookDate.isSame(today) ||
+        bookDate.isAfter(today)) {
+          bookingType = 'Upcoming Trips'
+        }
 
       bookingCards.innerHTML += `
         <section class="booking-cards" id="bookingCards">
@@ -56,7 +60,33 @@ const domUpdates = {
         </section>
       `
     })
+  },
 
+  renderBookingPage() {
+    this.setDate();
+    main.innerHTML = `
+    <section class="main-greeting">
+      <h2 class="greeting" id="greeting">Choose Your Date!</h2>
+      <form class="calendar">
+        <label for="arrive">Arrival Date</label>
+        <input type="date" id="arrivalDate" value="${today}" min="${today}" name="arrive" required>
+      <button class="book-button" id="bookStay">Check Availability</button>
+    </section>`
+  },
+
+  setDate() {
+    let dd = today.getDate();
+    let mm = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
+    let yyyy = today.getFullYear();
+
+    if(dd<10){
+      dd='0'+dd
+    }
+
+    if(mm<10){
+      mm='0'+mm
+    }
+    today = yyyy+'-'+mm+'-'+dd;
 
   }
 }
