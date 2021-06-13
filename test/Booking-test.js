@@ -4,7 +4,7 @@ import Booking from '../src/classes/Booking'
 import testBookings from './test-data/test-bookings'
 
 
-describe.only('Booking', () => {
+describe('Booking', () => {
   let booking;
 
   beforeEach(() => {
