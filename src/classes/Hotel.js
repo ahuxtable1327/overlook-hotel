@@ -27,7 +27,20 @@ class Hotel {
     }, 0);
   }
 
+  getAvailableRooms(date) {
+    const bookingsByDate = this.bookings.filter(booking => {
+      return booking.date === date
+    }).map(booking => booking.roomNumber)
 
+    this.availableRooms = this.rooms.filter(room =>
+        !bookingsByDate.includes(room.number))
+
+    if(this.availableRooms.length > 0) {
+      return this.availableRooms;
+    } else {
+      return 'Sorry, there are no rooms available for this date!'
+    }
+  }
 
 
 }

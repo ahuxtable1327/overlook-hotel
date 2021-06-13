@@ -80,7 +80,7 @@ describe.only('Hotel', () => {
     expect(availableRooms).to.deep.equal([room2, room3])
   })
 
-  it.skip('should not get any rooms if they are all booked on a date', () => {
+  it('should not get any rooms if they are all booked on a date', () => {
     let noRoom = hotel.getAvailableRooms('2020/01/24');
     expect(noRoom).to.equal('Sorry, there are no rooms available for this date!');
   })
