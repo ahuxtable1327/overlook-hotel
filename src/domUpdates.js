@@ -18,25 +18,28 @@ const domUpdates = {
 
   },
 
-  displayGuestDashboard(guest, bookings, rooms) {
+  displayGuestDashboard(guest, bookings, rooms, hotel) {
     const bookingCards = document.getElementById('bookingCards');
     const greeting = document.getElementById('greeting');
     const totalGuestCosts = document.getElementById('totalGuestCosts');
     let bookingType;
 
-    greeting.innertext = `Welcome, ${user.name}!`
+    greeting.innerText = `Welcome, ${guest.name}!`
+      bookingCards.innerHTML = ''
 
     hotel.getGuestBookings(guest).forEach(booking => {
-      hotel.getRoomInformation(booking)
-      const bookDate = dayjs(booking.)
-      if(bookDate.isBefore(todaysDate)){
-        bookingType = 'Past Trip'
-      }
-      if(bookDate.isSame(todaysDate) ||
-        bookDate.isAfter(todaysDate)) {
-          bookingType = 'Upcoming Trips'
-        }
-      bookingCards.innerHTML = `
+      let room = hotel.getRoomInformation(booking);
+      bookingType = 'Past Trip'
+      // const bookDate = dayjs(booking.)
+      // if(bookDate.isBefore(todaysDate)){
+      //   bookingType = 'Past Trip'
+      // }
+      // if(bookDate.isSame(todaysDate) ||
+      //   bookDate.isAfter(todaysDate)) {
+      //     bookingType = 'Upcoming Trips'
+      //   }
+
+      bookingCards.innerHTML += `
         <section class="booking-cards" id="bookingCards">
           <article class="booking">
             <h3>${bookingType}</h3>

@@ -6,29 +6,30 @@ import Hotel from './classes/Hotel'
 import Guest from './classes/Guest'
 import Booking from './classes/Booking'
 import Room from './classes/Room'
-import fetchData from './apiCalls'
+import domUpdates from './domUpdates'
+import getData from './apiCalls'
 
 let dayjs = require('dayjs');
 
-let guest, room, booking;
+let guest, hotel;
+let guestData, rooms, bookings;
 
-window.addEventListener('load', getData);
+
+window.addEventListener('load', loadPageInfo);
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 
-function getData(){
-  // fetchData('customer')
-  //   .then(guest => {
-  //     guest = new Guest(guest[0])
-  //   });
-  // fetchData('rooms')
-  //   .then(room => {
-  //     room = new Room(room)
-  //   });
-  // fetchData('bookings')
-  //   .then(booking => {
-  //     booking = new Booking(booking)
-  //   });
+function loadPageInfo(){
+  getData()
+    .then(response => {
+      guestData = response[0].customers;
+      rooms = response[1].rooms;
+      bookings = response[2].bookings;
+      console.log(guestData, rooms, bookings)
+      guest = new Guest(guestData[5]);
+      hotel = new Hotel(rooms, bookings)
+      domUpdates.displayGuestDashboard(guest, rooms, bookings, hotel)
+    })
 }
 
   console.log('This is the JavaScript entry file - your code begins here.');

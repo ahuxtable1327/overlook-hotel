@@ -26,7 +26,7 @@ const getData = () => Promise.all([fetchGuestData(), fetchRoomData(), fetchBooki
 
 
 
-const postData = () => {
+export const postData = () => {
   return fetch(`http://localhost:3001/api/v1/bookings`, {
     method: 'POST',
     body: JSON.stringify(booking),
@@ -34,7 +34,8 @@ const postData = () => {
       'Content-type': 'application/json'
     }
   })
-  .then(checkForError)
+  .catch(err => console.log(err))
+  // .then(checkForError)
 }
 
 const checkForError = (response) => {
@@ -45,3 +46,5 @@ const checkForError = (response) => {
     return response.json();
   }
 }
+
+export default getData;
