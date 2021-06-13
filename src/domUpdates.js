@@ -27,6 +27,11 @@ const domUpdates = {
     greeting.innerText = `Welcome, ${guest.name}!`
       bookingCards.innerHTML = ''
 
+      const amnt = hotel.calculateGuestAmntSpent(guest)
+      totalGuestCosts.innerHTML = `  <section class="trip-costs" id="totalGuestCosts">
+          <h4>Total spent at Overlook to date: $${amnt}</h4>
+        </section>`
+
     hotel.getGuestBookings(guest).forEach(booking => {
       let room = hotel.getRoomInformation(booking);
       bookingType = 'Past Trip'
@@ -52,10 +57,7 @@ const domUpdates = {
       `
     })
 
-    const amnt = hotel.calculateGuestAmntSpent(guest)
-    totalGuestCosts.innerHTML = `  <section class="trip-costs" id="totalGuestCosts">
-        <h4>Total spent at Overlook:${amnt}</h4>
-      </section>`
+
   }
 }
 
