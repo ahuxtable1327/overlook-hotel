@@ -1,3 +1,5 @@
+import { loadPageInfo } from './scripts'
+
 const fetchGuestData = () => {
   return fetch('http://localhost:3001/api/v1/customers')
     .then(response => response.json())
@@ -26,25 +28,29 @@ const getData = () => Promise.all([fetchGuestData(), fetchRoomData(), fetchBooki
 
 
 
-export const postData = () => {
+const postData = (user, dateSelected, roomNum) => {
   return fetch(`http://localhost:3001/api/v1/bookings`, {
     method: 'POST',
-    body: JSON.stringify(booking),
+    body: JSON.stringify({
+      userID: user.id,
+      date: dateSelected,
+      roomNumber: roomNum,
+    }),
     headers: {
       'Content-type': 'application/json'
     }
   })
-  .catch(err => console.log(err))
-  // .then(checkForError)
+  .then(checkForError)
+  .then(() => loadPageInfo())
+  .catch(err => console.error(err))
 }
 
 const checkForError = (response) => {
   if(!response.ok) {
-    // dom update to show error???
     throw new Error('Something went wrong')
   } else {
     return response.json();
   }
 }
 
-export default getData;
+export default { getData, postData };

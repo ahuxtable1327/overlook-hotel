@@ -138,7 +138,11 @@ const domUpdates = {
         <p class="room-type">${currentRoom.numBeds}</p>
         <p class="room-type"> Bidet: ${hasBidet}</p>
         <p class="cost">${currentRoom.costPerNight}</p>
-        <button id="${currentRoom.number}" class="select-room">Book Room!</button>
+        <section class="booked-room" id="bookedRoom">
+          <button id="${currentRoom.number}" class="book-room-btn">Book Room!</button>
+          <button id="goBackBtn" class="go-back-btn">Go back to results!</button>
+          <p class="success-msg hidden" id="successMsg">Your booking was added successfully!</p>
+        </section>
       </article>
     </section>
     `

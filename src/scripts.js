@@ -7,16 +7,19 @@ import Guest from './classes/Guest'
 import Booking from './classes/Booking'
 import Room from './classes/Room'
 import domUpdates from './domUpdates'
-import getData from './apiCalls'
+import apiCalls from './apiCalls'
+// import postData from './apiCalls'
 
 let dayjs = require('dayjs');
 
-let guest, hotel;
+let guest, room, booking, hotel;
 let guestData, rooms, bookings;
 
 const bookStay = document.getElementById('bookStay');
 const checkAvailability = document.getElementById('checkAvailability');
 const availableCards = document.getElementById('availableCards');
+const selectedRoom = document.getElementById('selectedRoom');
+const bookedRoom = document.getElementById('bookedRoom');
 
 
 window.addEventListener('load', loadPageInfo);
@@ -25,10 +28,13 @@ checkAvailability.addEventListener('click', displayAvailableRooms)
 availableCards.addEventListener('click', function() {
   displaySelectedRoom(event);
 })
+selectedRoom.addEventListener('click', function() {
+  addNewBooking(event);
+})
 
 
-function loadPageInfo(){
-  getData()
+export function loadPageInfo(){
+  apiCalls.getData()
     .then(response => {
       guestData = response[0].customers;
       rooms = response[1].rooms;
@@ -36,7 +42,10 @@ function loadPageInfo(){
       guest = new Guest(guestData[5]);
       hotel = new Hotel(rooms, bookings)
       domUpdates.displayGuestDashboard(guest, rooms, bookings, hotel)
+      console.log(bookings, 'inside')
     })
+    console.log(bookings, 'outside')
+
 }
 
 function displayBookingPage() {
@@ -53,3 +62,18 @@ function displaySelectedRoom(event) {
   let currentRoom = hotel.getRoomDetails(selectedRoom)
   domUpdates.renderSelectedRoom(currentRoom);
 }
+
+function addNewBooking(event) {
+  // debugger
+  if (event.target.className === 'book-room-btn'){
+    const user = guest
+    const dateSelected = dayjs(arrivalDate.value).format('YYYY/MM/DD');
+    const roomNum = parseInt(event.target.id)
+    console.log(user, dateSelected, roomNum);
+
+    apiCalls.postData(user, dateSelected, roomNum)
+
+    }
+
+    // loadPageInfo();
+  }
