@@ -1,0 +1,76 @@
+@import 'variables';
+
+*{
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+html{
+  height: 100vh;
+  vertical-align: baseline;
+}
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 100vw;
+  background: $primary-background;
+}
+
+header{
+  @include mainFlex();
+  background-color: $black-olive;
+  color: $white;
+}
+
+h1{
+  font-family: 'Pattaya', sans-serif;
+}
+
+h3 {
+  text-transform: capitalize;;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows:  1.5fr;
+  padding: 3rem;
+  grid-gap: 5rem;
+}
+
+button {
+  @include buttons();
+}
+
+footer{
+  @include mainFlex();
+  background-color: $black-olive;
+  color: $snow;
+  // align-self: baseline;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (min-width: $small-tablet) {
+  main{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    padding: 3rem;
+    grid-gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  main{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    padding: 3rem;
+    grid-gap: 2rem;
+  }
+}

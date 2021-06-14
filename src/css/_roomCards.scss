@@ -1,0 +1,38 @@
+@import 'variables';
+
+.booking-cards{
+  margin: 0;
+}
+
+.cards {
+  @include mainFlex();
+  max-width: 70vw;
+  height: auto;
+  width: 100%;
+  border-radius: 10px;
+  margin: 0 0 1rem 0;
+  background-color: $gray-web;
+  border: 2px solid $black-olive;
+  box-shadow: 7px 3px 3px $satin-sheen-gold;
+}
+
+img {
+  max-width: 35vw;
+  height: auto;
+  width: 100%;
+  align-self: center;
+  border-radius: 5px;
+}
+
+.room-type {
+  text-transform: uppercase;
+}
+
+.show-avail-button {
+  width: 20vw;
+  height: 5vh;
+}
+
+.select-room{
+  width: 20vw;
+}

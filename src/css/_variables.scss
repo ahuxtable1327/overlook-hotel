@@ -1,0 +1,26 @@
+$primary-background: #fbf5f3ff;
+$small-tablet: 600px;
+$large-tablet: 900px;
+$desktop: 1200px;
+
+
+$satin-sheen-gold: #c89933ff;
+$black-olive: #30332eff;
+$gray-web: #7c898bff;
+$snow: #fbf5f3ff;
+$white: #ffffffff;
+
+@mixin mainFlex() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin buttons() {
+  background-color: $satin-sheen-gold;
+  color: black;
+  width: 10vw;
+  height: 5vw;
+  border-radius: 5px;
+}

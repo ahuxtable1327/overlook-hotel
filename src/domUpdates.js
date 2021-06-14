@@ -60,15 +60,13 @@ const domUpdates = {
         }
 
       bookingCards.innerHTML += `
-        <section class="booking-cards" id="bookingCards">
-          <article class="booking">
+          <article class="cards">
             <h3>${bookingType}</h3>
             <img src="./images/room.jpg" alt="breezy room with king bed overlooking the sea">
             <p class="date">${booking.date}</p>
             <p class="room-type">${room.roomType}</p>
-            <p class="cost">${room.costPerNight}</p>
+            <p class="cost">$${room.costPerNight}</p>
           </article>
-        </section>
       `
     })
   },
@@ -115,9 +113,9 @@ const domUpdates = {
           <h3>${room.roomType}</h3>
           <img src="./images/room.jpg" alt="breezy room with king bed overlooking the sea">
           <p class="date">Available for ${date}</p>
-          <p class="room-type">${room.bedSize}</p>
-          <p class="cost">${room.costPerNight}</p>
-          <button id="${room.number}" class="select-room">View Room!</button>
+          <p class="room-type">${room.bedSize} bed</p>
+          <p class="cost">$${room.costPerNight} per night</p>
+          <button id="${room.number}" class="select-room">View</button>
         </article>
       </section>
       `
@@ -127,7 +125,7 @@ const domUpdates = {
   renderSelectedRoom(currentRoom) {
     console.log(arrivalDate.value);
     let date = arrivalDate.value;
-    this.hideElement(roomAvailability);
+    // this.hideElement(roomAvailability);
     this.showElement(selectedRoom);
     let hasBidet;
     if(currentRoom.bidet) {
@@ -138,17 +136,16 @@ const domUpdates = {
 
     selectedRoom.innerHTML += `
     <section class="selected-room" id="selectedRoom">
-      <article class="cards">
+      <article class="room-select">
+      <button class="close-selection" id="closeSelection">&times;</button>
         <h3>${currentRoom.roomType}</h3>
-        <img src="./images/room.jpg" alt="breezy room with king bed overlooking the sea">
+        <img class="img-select" src="./images/room.jpg" alt="breezy room with king bed overlooking the sea">
         <p class="date">Available for ${date}</p>
         <p class="room-type">${currentRoom.bedSize}</p>
-        <p class="room-type">${currentRoom.numBeds}</p>
         <p class="room-type"> Bidet: ${hasBidet}</p>
-        <p class="cost">${currentRoom.costPerNight}</p>
+        <p class="cost">$${currentRoom.costPerNight}</p>
         <section class="booked-room" id="bookedRoom">
           <button id="${currentRoom.number}" class="book-room-btn">Book Room!</button>
-          <button id="goBackBtn" class="go-back-btn">Go back to results!</button>
           <p class="success-msg hidden" id="successMsg">Your booking was added successfully!</p>
         </section>
       </article>
