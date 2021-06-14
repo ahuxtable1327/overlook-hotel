@@ -100,6 +100,7 @@ const domUpdates = {
 
   renderAvailableRooms(guest, bookings, rooms, hotel) {
     let date = arrivalDate.value
+    console.log('working')
     if(searchOptions.value === 'empty') {
       hotel.getAvailableRooms(date);
     }
