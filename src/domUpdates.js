@@ -60,7 +60,7 @@ const domUpdates = {
         <section class="booking-cards" id="bookingCards">
           <article class="booking">
             <h3>${bookingType}</h3>
-            <img src="" alt="">
+            <img src="./images/room.jpg" alt="breezy room with king bed overlooking the sea">
             <p class="date">${booking.date}</p>
             <p class="room-type">${room.roomType}</p>
             <p class="cost">${room.costPerNight}</p>
@@ -103,7 +103,7 @@ const domUpdates = {
       <section class="booking-cards" id="bookingCards">
         <article class="booking">
           <h3>${room.roomType}</h3>
-          <img src="" alt="">
+          <img src="./images/room.jpg" alt="breezy room with king bed overlooking the sea">
           <p class="date">Available for ${date}</p>
           <p class="room-type">${room.bedSize}</p>
           <p class="cost">${room.costPerNight}</p>

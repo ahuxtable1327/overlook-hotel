@@ -1,7 +1,7 @@
 // This is the JavaScript entry file - your code begins here
 // Do not delete or rename this file ********
 import './css/base.scss';
-import './images/turing-logo.png'
+import './images/room.jpg'
 import Hotel from './classes/Hotel'
 import Guest from './classes/Guest'
 import Booking from './classes/Booking'
