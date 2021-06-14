@@ -1,0 +1,13 @@
+@import 'variables';
+
+
+.cards {
+  @include mainFlex();
+  max-width: 70vw;
+  height: auto;
+  width: 100%;
+  border-radius: 10px;
+  background-color: $gray-web;
+  border: 2px solid $black-olive;
+  box-shadow: 7px 3px 3px $satin-sheen-gold;
+}

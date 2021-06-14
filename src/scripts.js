@@ -1,6 +1,6 @@
 // This is the JavaScript entry file - your code begins here
 // Do not delete or rename this file ********
-import './css/base.scss';
+import './css/styles.scss';
 import './images/room.jpg'
 import Hotel from './classes/Hotel'
 import Guest from './classes/Guest'
@@ -30,6 +30,9 @@ availableCards.addEventListener('click', function() {
 })
 selectedRoom.addEventListener('click', function() {
   addNewBooking(event);
+})
+selectedRoom.addEventListener('click', function() {
+  closeSelectedRoom(event);
 })
 
 
@@ -61,6 +64,12 @@ function displaySelectedRoom(event) {
   let selectedRoom = parseInt(event.target.closest('button').id);
   let currentRoom = hotel.getRoomDetails(selectedRoom)
   domUpdates.renderSelectedRoom(currentRoom);
+}
+
+function closeSelectedRoom(event) {
+  if (event.target.className === 'close-selection') {
+    selectedRoom.classList.add('hidden');
+  }
 }
 
 function addNewBooking(event) {
