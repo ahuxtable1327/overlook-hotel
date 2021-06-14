@@ -8,12 +8,20 @@ const todaysDate = dayjs('2021/6/13')
 let today = new Date()
 
 const greeting = document.getElementById('greeting');
-const main = document.getElementById('main')
-
-
+const guestPage = document.getElementById('guestPage');
+const roomAvailability = document.getElementById('roomAvailability');
+const arrivalDate = document.getElementById('arrivalDate');
 
 
 const domUpdates = {
+
+  hideElement(element){
+    element.classList.add('hidden');
+  },
+
+  showElement(element){
+    element.classList.remove('hidden')
+  },
 
   displayMainPage(rooms) {
     const bookingCards = document.getElementById('bookingCards');
@@ -61,19 +69,6 @@ const domUpdates = {
       `
     })
   },
-
-  renderBookingPage() {
-    this.setDate();
-    main.innerHTML = `
-    <section class="main-greeting">
-      <h2 class="greeting" id="greeting">Choose Your Date!</h2>
-      <form class="calendar">
-        <label for="arrive">Arrival Date</label>
-        <input type="date" id="arrivalDate" value="${today}" min="${today}" name="arrive" required>
-      <button class="book-button" id="bookStay">Check Availability</button>
-    </section>`
-  },
-
   setDate() {
     let dd = today.getDate();
     let mm = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
@@ -87,8 +82,37 @@ const domUpdates = {
       mm='0'+mm
     }
     today = yyyy+'-'+mm+'-'+dd;
+    document.getElementById('arrivalDate').setAttribute("min", today);
+    document.getElementById('arrivalDate').setAttribute("value", today);
 
+
+  },
+
+  renderBookingForm() {
+    this.setDate();
+    this.hideElement(guestPage);
+    this.showElement(roomAvailability);
+
+  },
+
+  renderAvailableRooms(guest, bookings, rooms, hotel) {
+    let date = arrivalDate.value
+    hotel.getAvailableRooms(date);
+    hotel.availableRooms.forEach(room => {
+      main.innerHTML += `
+      <section class="booking-cards" id="bookingCards">
+        <article class="booking">
+          <h3>${room.roomType}</h3>
+          <img src="" alt="">
+          <p class="date">Available for ${date}</p>
+          <p class="room-type">${room.bedSize}</p>
+          <p class="cost">${room.costPerNight}</p>
+        </article>
+      </section>
+      `
+    })
   }
+
 }
 
 export default domUpdates;

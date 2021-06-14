@@ -15,10 +15,12 @@ let guest, hotel;
 let guestData, rooms, bookings;
 
 const bookStay = document.getElementById('bookStay')
+const checkAvailability = document.getElementById('checkAvailability')
 
 
 window.addEventListener('load', loadPageInfo);
 bookStay.addEventListener('click', displayBookingPage)
+checkAvailability.addEventListener('click', displayAvailableRooms)
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 
@@ -35,5 +37,10 @@ function loadPageInfo(){
 }
 
 function displayBookingPage() {
-  domUpdates.renderBookingPage();
+  domUpdates.renderBookingForm();
+}
+
+function displayAvailableRooms() {
+  event.preventDefault();
+  domUpdates.renderAvailableRooms(guest, bookings, rooms, hotel);
 }
