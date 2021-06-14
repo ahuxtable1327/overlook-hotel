@@ -42,8 +42,14 @@ class Hotel {
     }
   }
 
+  getRoomsAvailableByType(date, type) {
+    this.getAvailableRooms(date);
+    let roomsByType = this.availableRooms.filter(room => room.roomType === type);
+    return this.availableRooms = roomsByType;
+  }
+
   getRoomDetails(selectedRoom) {
-    return this.rooms.find(room => 
+    return this.rooms.find(room =>
       room.number === selectedRoom)
   }
 

@@ -38,6 +38,14 @@
       <section class="room-availability hidden" id="roomAvailability">
           <h2 class="greeting" id="chooseDate">Choose Your Date!</h2>
           <form class="calendar">
+            <label class='search-by' for='search-options'>Room Type</label>
+            <select class='search-options' name='search' id='searchOptions'>
+              <option value='empty'></option>
+              <option value='Residential Suite'>Residential Suite</option>
+              <option value='Junior Suite'>Junior Suite</option>
+              <option value='Suite'>Suite</option>
+              <option value='Single Room'>Single Room</option>
+            </select>
             <label for="arrive">Arrival Date</label>
             <input type="date" id="arrivalDate" value="" min="" name="arrive" required>
             <button class="show-avail-button" id="checkAvailability">Check Availability</button>

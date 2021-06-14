@@ -13,6 +13,7 @@ const availableCards = document.getElementById('availableCards');
 const roomAvailability = document.getElementById('roomAvailability')
 const arrivalDate = document.getElementById('arrivalDate');
 const selectedRoom = document.getElementById('selectedRoom');
+const searchOptions = document.getElementById('searchOptions');
 
 
 const domUpdates = {
@@ -99,7 +100,14 @@ const domUpdates = {
 
   renderAvailableRooms(guest, bookings, rooms, hotel) {
     let date = arrivalDate.value
-    hotel.getAvailableRooms(date);
+    console.log('working')
+    if(searchOptions.value === 'empty') {
+      hotel.getAvailableRooms(date);
+    }
+    if(searchOptions.value !== 'empty') {
+      let type = searchOptions.value.toLowerCase();
+      hotel.getRoomsAvailableByType(date, type);
+    }
     hotel.availableRooms.forEach(room => {
       availableCards.innerHTML += `
       <section class="avail-cards" id="availableCards">
