@@ -18,14 +18,14 @@
       <section class="guest-page" id="guestPage">
         <section class="main-greeting">
           <h2 class="greeting" id="greeting">Welcome to the Overlook Hotel!</h2>
-          <p>Click here to book a new trip! Otherwise, scroll down to view rooms.</p>
+          <p>Click here to book a new trip! Otherwise, scroll down to view your bookings! .</p>
           <button class="book-button" id="bookStay">Book Your Stay</button>
         </section>
         <section class="trip-costs" id="totalGuestCosts">
           <h4>Total spent at Overlook:</h4>
         </section>
         <section class="booking-cards" id="bookingCards">
-          <article class="booking">
+          <article class="cards">
             <h3>Booking Type</h3>
             <img src="./images/room.jpg" alt="breezy room with king bed overlooking the sea">
             <p class="room-info" id="bookDate">date</p>
@@ -40,8 +40,12 @@
           <form class="calendar">
             <label for="arrive">Arrival Date</label>
             <input type="date" id="arrivalDate" value="" min="" name="arrive" required>
-          <button class="show-avail-button" id="checkAvailability">Check Availability</button>
+            <button class="show-avail-button" id="checkAvailability">Check Availability</button>
           </form>
+          <section class="avail-cards" id="availableCards">
+          </section>
+      </section>
+      <section class="selected-room" id="selectedRoom">
       </section>
     </main>
     <footer>

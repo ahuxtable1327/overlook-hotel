@@ -42,6 +42,11 @@ class Hotel {
     }
   }
 
+  getRoomDetails(selectedRoom) {
+    return this.rooms.find(room => 
+      room.number === selectedRoom)
+  }
+
 
 }
 

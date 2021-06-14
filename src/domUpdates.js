@@ -9,8 +9,10 @@ let today = new Date()
 
 const greeting = document.getElementById('greeting');
 const guestPage = document.getElementById('guestPage');
-const roomAvailability = document.getElementById('roomAvailability');
+const availableCards = document.getElementById('availableCards');
+const roomAvailability = document.getElementById('roomAvailability')
 const arrivalDate = document.getElementById('arrivalDate');
+const selectedRoom = document.getElementById('selectedRoom');
 
 
 const domUpdates = {
@@ -99,18 +101,47 @@ const domUpdates = {
     let date = arrivalDate.value
     hotel.getAvailableRooms(date);
     hotel.availableRooms.forEach(room => {
-      main.innerHTML += `
-      <section class="booking-cards" id="bookingCards">
-        <article class="booking">
+      availableCards.innerHTML += `
+      <section class="avail-cards" id="availableCards">
+        <article class="cards">
           <h3>${room.roomType}</h3>
           <img src="./images/room.jpg" alt="breezy room with king bed overlooking the sea">
           <p class="date">Available for ${date}</p>
           <p class="room-type">${room.bedSize}</p>
           <p class="cost">${room.costPerNight}</p>
+          <button id="${room.number}" class="select-room">View Room!</button>
         </article>
       </section>
       `
     })
+  },
+
+  renderSelectedRoom(currentRoom) {
+    console.log(arrivalDate.value);
+    let date = arrivalDate.value;
+    this.hideElement(roomAvailability);
+    this.showElement(selectedRoom);
+    let hasBidet;
+    if(currentRoom.bidet) {
+      hasBidet = 'Yes'
+    } else {
+      hasBidet = 'No'
+    }
+
+    selectedRoom.innerHTML += `
+    <section class="selected-room" id="selectedRoom">
+      <article class="cards">
+        <h3>${currentRoom.roomType}</h3>
+        <img src="./images/room.jpg" alt="breezy room with king bed overlooking the sea">
+        <p class="date">Available for ${date}</p>
+        <p class="room-type">${currentRoom.bedSize}</p>
+        <p class="room-type">${currentRoom.numBeds}</p>
+        <p class="room-type"> Bidet: ${hasBidet}</p>
+        <p class="cost">${currentRoom.costPerNight}</p>
+        <button id="${currentRoom.number}" class="select-room">Book Room!</button>
+      </article>
+    </section>
+    `
   }
 
 }

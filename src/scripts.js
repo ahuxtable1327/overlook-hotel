@@ -14,15 +14,18 @@ let dayjs = require('dayjs');
 let guest, hotel;
 let guestData, rooms, bookings;
 
-const bookStay = document.getElementById('bookStay')
-const checkAvailability = document.getElementById('checkAvailability')
+const bookStay = document.getElementById('bookStay');
+const checkAvailability = document.getElementById('checkAvailability');
+const availableCards = document.getElementById('availableCards');
 
 
 window.addEventListener('load', loadPageInfo);
 bookStay.addEventListener('click', displayBookingPage)
 checkAvailability.addEventListener('click', displayAvailableRooms)
+availableCards.addEventListener('click', function() {
+  displaySelectedRoom(event);
+})
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
 
 function loadPageInfo(){
   getData()
@@ -43,4 +46,10 @@ function displayBookingPage() {
 function displayAvailableRooms() {
   event.preventDefault();
   domUpdates.renderAvailableRooms(guest, bookings, rooms, hotel);
+}
+
+function displaySelectedRoom(event) {
+  let selectedRoom = parseInt(event.target.closest('button').id);
+  let currentRoom = hotel.getRoomDetails(selectedRoom)
+  domUpdates.renderSelectedRoom(currentRoom);
 }
