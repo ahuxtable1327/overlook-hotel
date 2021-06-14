@@ -64,16 +64,11 @@ function displaySelectedRoom(event) {
 }
 
 function addNewBooking(event) {
-  // debugger
   if (event.target.className === 'book-room-btn'){
     const user = guest
     const dateSelected = dayjs(arrivalDate.value).format('YYYY/MM/DD');
     const roomNum = parseInt(event.target.id)
-    console.log(user, dateSelected, roomNum);
 
     apiCalls.postData(user, dateSelected, roomNum)
-
     }
-
-    // loadPageInfo();
   }
