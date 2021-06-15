@@ -9,6 +9,7 @@
 
 html{
   height: 100vh;
+  max-width: 100vw;
   vertical-align: baseline;
 }
 body {
@@ -19,44 +20,102 @@ body {
 }
 
 header{
-  @include mainFlex();
+  display: flex;
+  justify-content: space-between;
   background-color: $black-olive;
   color: $white;
 }
 
+nav{
+  @include mainFlex();
+  margin-right: 2vw;
+}
+
+// Text Elements
 h1{
   font-family: 'Pattaya', sans-serif;
+  font-size: 5vw;
+}
+
+h2{
+  font-size: 4vw;
 }
 
 h3 {
   text-transform: capitalize;;
 }
 
+h4{
+  font-size: 3vw;
+  text-align: center;;
+  margin: 1rem;
+}
+
+
+// MAIN BODY
+.main-greeting{
+    @include mainFlex();
+}
+
+.main-greet-p{
+  font-size: 2vw;
+  margin: 1rem;
+}
+
+// .book-button{
+//   font-size: 2vw;
+// }
+
 main {
+  // position: relative;
+  // min-height: 100vh;
+  // overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows:  1.5fr;
-  padding: 3rem;
+  padding: 1rem;
   grid-gap: 5rem;
+}
+
+.calendar{
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-around;
+  align-items: center;
+  margin: 1rem;
+  font-size: 3vw;
+}
+label {
+  margin: 0.7rem;
 }
 
 button {
   @include buttons();
 }
-
-footer{
-  @include mainFlex();
-  background-color: $black-olive;
-  color: $snow;
-  // align-self: baseline;
+button:hover,
+button:active {
+  background-color: $gray-web;
+  color: white;
 }
+
+// footer{
+//   @include mainFlex();
+//   background-color: $black-olive;
+//   color: $snow;
+  // position: absolute;;
+  // bottom: 0;
+  // width: 100vw;
+  // padding: 0.5rem;
+  // align-self: baseline;
+// }
 
 .hidden {
   display: none;
 }
 
 @media screen and (min-width: $small-tablet) {
-  main{
+  .booking-cards,
+  .avail-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
@@ -65,12 +124,40 @@ footer{
   }
 }
 
-@media screen and (min-width: 900px) {
-  main{
+@media screen and (min-width: $large-tablet) {
+  .booking-cards,
+  .avail-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    padding: 3rem;
+    grid-gap: 2rem;
+  }
+
+  .calendar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem;
+    font-size: 2.3vw;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .booking-cards,
+  .avail-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
     padding: 3rem;
     grid-gap: 2rem;
+  }
+
+  .calendar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem;
+    font-size: 2.3vw;
   }
 }

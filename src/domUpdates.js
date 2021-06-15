@@ -4,7 +4,6 @@ import Booking from './classes/Booking'
 import Room from './classes/Room'
 
 let dayjs = require('dayjs');
-const todaysDate = dayjs('2021/6/13')
 let today = new Date()
 
 const greeting = document.getElementById('greeting');
@@ -97,8 +96,8 @@ const domUpdates = {
   },
 
   renderAvailableRooms(guest, bookings, rooms, hotel) {
+    availableCards.innerHTML = ''
     let date = arrivalDate.value
-    console.log('working')
     if(searchOptions.value === 'empty') {
       hotel.getAvailableRooms(date);
     }
@@ -108,7 +107,6 @@ const domUpdates = {
     }
     hotel.availableRooms.forEach(room => {
       availableCards.innerHTML += `
-      <section class="avail-cards" id="availableCards">
         <article class="cards">
           <h3>${room.roomType}</h3>
           <img src="./images/room.jpg" alt="breezy room with king bed overlooking the sea">
@@ -117,15 +115,13 @@ const domUpdates = {
           <p class="cost">$${room.costPerNight} per night</p>
           <button id="${room.number}" class="select-room">View</button>
         </article>
-      </section>
       `
     })
   },
 
   renderSelectedRoom(currentRoom) {
-    console.log(arrivalDate.value);
+    selectedRoom.innerHTML
     let date = arrivalDate.value;
-    // this.hideElement(roomAvailability);
     this.showElement(selectedRoom);
     let hasBidet;
     if(currentRoom.bidet) {
