@@ -4,9 +4,14 @@
   margin: 0;
 }
 
+.avail-cards{
+  max-width: 100vw;
+  padding: 0;
+}
+
 .cards {
   @include mainFlex();
-  max-width: 70vw;
+  max-width: 100vw;
   height: auto;
   width: 100%;
   border-radius: 10px;

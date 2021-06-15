@@ -4,7 +4,6 @@ import Booking from './classes/Booking'
 import Room from './classes/Room'
 
 let dayjs = require('dayjs');
-const todaysDate = dayjs('2021/6/13')
 let today = new Date()
 
 const greeting = document.getElementById('greeting');
@@ -123,9 +122,7 @@ const domUpdates = {
   },
 
   renderSelectedRoom(currentRoom) {
-    console.log(arrivalDate.value);
     let date = arrivalDate.value;
-    // this.hideElement(roomAvailability);
     this.showElement(selectedRoom);
     let hasBidet;
     if(currentRoom.bidet) {
