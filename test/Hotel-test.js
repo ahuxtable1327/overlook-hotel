@@ -10,7 +10,7 @@ import testUsers from './test-data/test-users'
 
 
 
-describe.only('Hotel', () => {
+describe('Hotel', () => {
   let hotel, room1, room2, room3, booking, guest;
 
   beforeEach(() => {

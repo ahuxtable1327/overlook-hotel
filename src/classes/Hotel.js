@@ -21,10 +21,12 @@ class Hotel {
     bookings.forEach(booking => {
       rooms.push(this.getRoomInformation(booking))
     });
-    return rooms.reduce((amntSpent, currentRoom) => {
+    let amntSpent = rooms.reduce((amntSpent, currentRoom) => {
       amntSpent += currentRoom.costPerNight
       return amntSpent
     }, 0).toFixed(2);
+    return parseFloat(amntSpent)
+
   }
 
   getAvailableRooms(date) {
