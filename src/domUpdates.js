@@ -15,6 +15,7 @@ const selectedRoom = document.getElementById('selectedRoom');
 const searchOptions = document.getElementById('searchOptions');
 
 
+
 const domUpdates = {
 
   hideElement(element){
@@ -147,6 +148,11 @@ const domUpdates = {
       </article>
     </section>
     `
+  },
+
+  displaySignInError(){
+    const signInError = document.getElementById('signInError');
+    signInError.innerHTML = 'Sorry, the username or password does not match'
   }
 
 }
