@@ -56,12 +56,10 @@ export function loadPageInfo(){
       bookingsData = response[2].bookings;
       instantiateRooms(roomsData);
       instantiateBookings(bookingsData)
-      // guest = new Guest(guestData[5]);
       hotel = new Hotel(rooms, bookings)
       domUpdates.displayGuestDashboard(guest, rooms, bookings, hotel)
     })
-    console.log(bookings, 'outside')
-
+    console.log(bookings)
 }
 
 function getUser(customerID){
@@ -71,6 +69,7 @@ function getUser(customerID){
       guest = new Guest(currentUser);
       loadPageInfo();
   })
+
 }
 
 function instantiateRooms(roomsData) {
@@ -99,7 +98,6 @@ function displayAvailableRooms() {
   event.preventDefault();
   domUpdates.renderAvailableRooms(guest, bookings, rooms, hotel);
   form.reset();
-
 }
 
 function displaySelectedRoom(event) {
@@ -122,7 +120,7 @@ function addNewBooking(event) {
 
     apiCalls.postData(user, dateSelected, roomNum)
     }
-    // setTimeout()
+    setTimeout(returnHome, 2000);
 
   }
 
@@ -147,13 +145,13 @@ function verifyUser(customerID, password){
     logIn(customerID);
   }
   logInForm.reset();
-
 }
 
 function logIn(customerID){
   logInView.classList.add('hidden');
   mainPage.classList.remove('hidden');
   getUser(customerID)
+
 }
 
 function changeUser(){
@@ -162,5 +160,6 @@ function changeUser(){
 
 function returnHome(){
   domUpdates.goHome();
+  selectedRoom.classList.add('hide');
   loadPageInfo();
 }

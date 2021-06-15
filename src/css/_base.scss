@@ -127,6 +127,11 @@ button:active {
     padding: 3rem;
     grid-gap: 2rem;
   }
+  button{
+    width: 20vw;
+    height: 5vh;
+    font-size: 1.5vw;
+  }
 }
 
 @media screen and (min-width: $large-tablet) {
@@ -139,20 +144,18 @@ button:active {
     grid-gap: 2rem;
   }
 
+  .main-greet-p{
+    font-size: 2.5vw;
+    width: 70vw;
+    text-align: center;
+  }
+
   .calendar{
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 1rem;
     font-size: 2.3vw;
-  }
-  .login-text{
-    font-size: 2vw;
-  }
-
-  .sign-in-input{
-    width: 20vw;
-    height: 5vh;
   }
 
   button{
@@ -172,21 +175,19 @@ button:active {
     grid-gap: 2rem;
   }
 
+  .main-greet-p{
+    font-size: 2.5vw;
+    width: 70vw;
+    text-align: center;
+
+  }
+
   .calendar{
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 1rem;
     font-size: 2.3vw;
-  }
-
-  .login-text{
-    font-size: 2vw;
-  }
-
-  .sign-in-input{
-    width: 20vw;
-    height: 5vh;
   }
 
   button{

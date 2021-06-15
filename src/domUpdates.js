@@ -4,7 +4,11 @@ import Booking from './classes/Booking'
 import Room from './classes/Room'
 
 let dayjs = require('dayjs');
-let today = new Date()
+const today = dayjs(Date.now()).format('YYYY-MM-DD');
+document.getElementById('arrivalDate').setAttribute("min", today);
+document.getElementById('arrivalDate').setAttribute("value", today);
+
+
 
 const greeting = document.getElementById('greeting');
 const guestPage = document.getElementById('guestPage');
@@ -36,7 +40,7 @@ const domUpdates = {
 
   displayGuestDashboard(guest, bookings, rooms, hotel) {
     console.log('working')
-    console.log(guest);
+    console.log(today);
     const bookingCards = document.getElementById('bookingCards');
     const totalGuestCosts = document.getElementById('totalGuestCosts');
     let bookingType;
@@ -72,24 +76,6 @@ const domUpdates = {
       `
     })
   },
-  setDate() {
-    let dd = today.getDate();
-    let mm = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
-    let yyyy = today.getFullYear();
-
-    if(dd<10){
-      dd='0'+dd
-    }
-
-    if(mm<10){
-      mm='0'+mm
-    }
-    today = yyyy+'-'+mm+'-'+dd;
-    document.getElementById('arrivalDate').setAttribute("min", today);
-    document.getElementById('arrivalDate').setAttribute("value", today);
-
-
-  },
 
   goHome(){
     this.hideElement(roomAvailability);
@@ -97,13 +83,14 @@ const domUpdates = {
   },
 
   renderBookingForm() {
-    this.setDate();
     this.hideElement(guestPage);
     this.showElement(roomAvailability);
-
   },
 
   renderAvailableRooms(guest, bookings, rooms, hotel) {
+    const noRooms = document.getElementById('noRoomsError');
+    noRooms.innerText = ''
+
     availableCards.innerHTML = ''
     let date = dayjs(arrivalDate.value).format('YYYY/MM/DD');
     if(searchOptions.value === 'empty') {
@@ -134,7 +121,7 @@ const domUpdates = {
 
   renderSelectedRoom(currentRoom) {
     selectedRoom.innerHTML
-    let date = arrivalDate.value;
+    let date = dayjs(arrivalDate.value).format('YYYY/MM/DD');
     this.showElement(selectedRoom);
     let hasBidet;
     if(currentRoom.bidet) {
@@ -164,7 +151,6 @@ const domUpdates = {
 
   displayNoRoomsError(){
     const noRooms = document.getElementById('noRoomsError');
-    console.log(noRooms)
     noRooms.innerText = 'Sorry there are no rooms available for your search requirements, please try again!'
 
   },
@@ -177,6 +163,16 @@ const domUpdates = {
   displaySuccess(){
     const successMsg = document.getElementById('successMsg');
     successMsg.innerText = 'Your booking was added successfully!'
+  },
+
+  displayBookingError(){
+    const successMsg = document.getElementById('successMsg');
+    successMsg.innerText = 'Something went wrong. Please try again later!'
+  },
+
+  displayLoginCatchError(){
+    const signInError = document.getElementById('signInError');
+    signInError.innerText = 'Sorry, something went wrong with the server. Please try again later!'
   }
 
 }

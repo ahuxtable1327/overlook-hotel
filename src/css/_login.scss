@@ -3,6 +3,7 @@
 
 
 .log-in-view{
+  font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,12 +14,14 @@
 .login-text{
   text-align: center;
   margin-top: 1rem;
+  font-size: 5.5vw;
 }
 
 .sign-in-input{
-  width: 30vw;
-  height: 6vw;
+  width: 40vw;
+  height: 5vh;
   margin: 0.7rem;
+  font-size: 4vw;
 }
 
 .log-in-form{
@@ -29,4 +32,44 @@
 
 .log-in-button{
   align-self: center;
+  font-size: 3vw;
+  height: 4vh;
+}
+
+@media screen and (min-width: $large-tablet) {
+  .login-text{
+    font-size: 4vw;
+  }
+
+  .sign-in-input{
+    width: 30vw;
+    height: 5vh;
+    font-size: 2vw;
+  }
+
+  .log-in-button{
+    align-self: center;
+    width: 20vw;
+    height: 4vh;
+    font-size: 2vw;
+  }
+}
+
+@media screen and (min-width: $desktop){
+  .login-text{
+    font-size: 3vw;
+  }
+
+  .sign-in-input{
+    width: 20vw;
+    height: 6vh;
+    font-size: 2vw;
+  }
+
+  .log-in-button{
+    align-self: center;
+    width: 15vw;
+    height: 6vh;
+    font-size: 2vw;
+  }
 }
