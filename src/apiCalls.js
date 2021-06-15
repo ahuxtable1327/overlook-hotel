@@ -44,7 +44,7 @@ const postData = (user, dateSelected, roomNum) => {
   })
   .then(checkForError)
   .then(() => loadPageInfo())
-  .catch(err => console.error(err))
+  .catch(domUpdates.displayCatchE)
 }
 
 const checkForError = (response) => {

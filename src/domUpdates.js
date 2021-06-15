@@ -88,6 +88,9 @@ const domUpdates = {
   },
 
   renderAvailableRooms(guest, bookings, rooms, hotel) {
+    const noRooms = document.getElementById('noRoomsError');
+    noRooms.innerText = ''
+
     availableCards.innerHTML = ''
     let date = dayjs(arrivalDate.value).format('YYYY/MM/DD');
     if(searchOptions.value === 'empty') {
@@ -148,7 +151,6 @@ const domUpdates = {
 
   displayNoRoomsError(){
     const noRooms = document.getElementById('noRoomsError');
-    console.log(noRooms)
     noRooms.innerText = 'Sorry there are no rooms available for your search requirements, please try again!'
 
   },
@@ -161,6 +163,16 @@ const domUpdates = {
   displaySuccess(){
     const successMsg = document.getElementById('successMsg');
     successMsg.innerText = 'Your booking was added successfully!'
+  },
+
+  displayBookingError(){
+    const successMsg = document.getElementById('successMsg');
+    successMsg.innerText = 'Something went wrong. Please try again later!'
+  },
+
+  displayLoginCatchError(){
+    const signInError = document.getElementById('signInError');
+    signInError.innerText = 'Sorry, something went wrong with the server. Please try again later!'
   }
 
 }
