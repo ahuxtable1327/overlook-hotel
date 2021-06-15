@@ -28,6 +28,7 @@ const passwordField = document.getElementById('passwordField');
 const logInView = document.getElementById('logInView');
 const mainPage = document.getElementById('main');
 const logInForm = document.getElementById('logInForm');
+const newUser = document.getElementById('changeUserBtn');
 
 
 
@@ -43,6 +44,7 @@ selectedRoom.addEventListener('click', function() {
   closeSelectedRoom(event);
 })
 loginBtn.addEventListener('click', logInUser);
+newUser.addEventListener('click', changeUser);
 
 export function loadPageInfo(){
   apiCalls.getData()
@@ -149,4 +151,8 @@ function logIn(customerID){
   logInView.classList.add('hidden');
   mainPage.classList.remove('hidden');
   getUser(customerID)
+}
+
+function changeUser(){
+  location.reload();
 }
