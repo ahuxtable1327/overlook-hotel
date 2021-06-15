@@ -31,3 +31,25 @@
 .log-in-button{
   align-self: center;
 }
+
+@media screen and (min-width: $large-tablet) {
+  .login-text{
+    font-size: 2vw;
+  }
+
+  .sign-in-input{
+    width: 20vw;
+    height: 5vh;
+  }
+}
+
+@media screen and (min-width: $desktop){
+  .login-text{
+    font-size: 2vw;
+  }
+
+  .sign-in-input{
+    width: 20vw;
+    height: 3vh;
+  }
+}

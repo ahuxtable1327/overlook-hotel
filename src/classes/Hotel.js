@@ -26,7 +26,6 @@ class Hotel {
       return amntSpent
     }, 0).toFixed(2);
     return parseFloat(amntSpent)
-
   }
 
   getAvailableRooms(date) {

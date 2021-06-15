@@ -84,4 +84,9 @@ describe('Hotel', () => {
     let noRoom = hotel.getAvailableRooms('2020/01/24');
     expect(noRoom).to.equal('Sorry, there are no rooms available for this date!');
   })
+
+  it('should be able to filter available rooms by type', () => {
+    let availableRooms = hotel.getRoomsAvailableByType('2020/04/22', 'suite');
+    expect(availableRooms).to.deep.equal([room2]);
+  })
 })
