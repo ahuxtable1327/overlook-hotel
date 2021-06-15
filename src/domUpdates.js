@@ -106,18 +106,23 @@ const domUpdates = {
       let type = searchOptions.value.toLowerCase();
       hotel.getRoomsAvailableByType(date, type);
     }
-    hotel.availableRooms.forEach(room => {
-      availableCards.innerHTML += `
-        <article class="cards">
-          <h3>${room.roomType}</h3>
-          <img src="./images/room.jpg" alt="breezy room with king bed overlooking the sea">
-          <p class="date">Available for ${date}</p>
-          <p class="room-type">${room.bedSize} bed</p>
-          <p class="cost">$${room.costPerNight} per night</p>
-          <button id="${room.number}" class="select-room">View</button>
-        </article>
-      `
-    })
+
+    if(hotel.availableRooms.length === 0) {
+      this.displayNoRoomsError();
+    } else {
+      hotel.availableRooms.forEach(room => {
+        availableCards.innerHTML += `
+          <article class="cards">
+            <h3>${room.roomType}</h3>
+            <img src="./images/room.jpg" alt="breezy room with king bed overlooking the sea">
+            <p class="date">Available for ${date}</p>
+            <p class="room-type">${room.bedSize} bed</p>
+            <p class="cost">$${room.costPerNight} per night</p>
+            <button id="${room.number}" class="select-room">View</button>
+          </article>
+        `
+      })
+    }
   },
 
   renderSelectedRoom(currentRoom) {
@@ -148,6 +153,13 @@ const domUpdates = {
       </article>
     </section>
     `
+  },
+
+  displayNoRoomsError(){
+    const noRooms = document.getElementById('noRoomsError');
+    console.log(noRooms)
+    noRooms.innerText = 'Sorry there are no rooms available for your search requirements, please try again!'
+
   },
 
   displaySignInError(){
