@@ -17,26 +17,22 @@
     </nav>
   </header>
   <section class="log-in-view" id="logInView">
-     <!-- <article class="sign-in-flex" id="sign-in-grid"> -->
-       <article class="header" id="signInHeader">
-         <h2 class="login-text">Login with your username and password to continue</h2>
-       </article>
-         <input class="sign-in-input" id="username" type="text" placeholder="username">
-         <input class="sign-in-input" id="password" type="password" placeholder="password">
-         <button class="log-in-button" id="loginBtn">Login</button>
-       <article class="footer hidden" id="signInError">
-         <h2>Incorrect login. Please try again.</h2>
-       </article>
-     <!-- </article> -->
+     <article class="header" id="signInHeader">
+       <h2 class="login-text">Login with your username and password to continue</h2>
+     </article>
+       <input class="sign-in-input" id="usernameField" type="text" placeholder="username" required>
+       <input class="sign-in-input" id="passwordField" type="password" placeholder="password" required>
+       <button class="log-in-button" id="loginBtn">Login</button>
+       <p class="error" id="signInError"></p>
    </section>
-    <main class="main-page hidden" id="main">
+   <main class="main-page hidden" id="main">
       <section class="main-greeting">
         <h2 class="greeting" id="greeting">Welcome to the Overlook Hotel!</h2>
         <p class="main-greet-p">Click here to book a new trip! Otherwise, scroll down to view your bookings! .</p>
         <button class="book-button" id="bookStay">Book a Stay!</button>
-      </section>
-      <section class="trip-costs" id="totalGuestCosts">
-        <h4>Total spent at Overlook:</h4>
+        <div class="trip-costs" id="totalGuestCosts">
+          <h4>Total spent at Overlook:</h4>
+        </div>
       </section>
       <section class="guest-page" id="guestPage">
         <section class="booking-cards" id="bookingCards">
@@ -54,7 +50,7 @@
               <option value='Single Room'>Single Room</option>
             </select>
             <label for="arrive">Arrival Date</label>
-            <input type="date" id="arrivalDate" value="" min="" name="arrive" required>
+            <input type="date" class="arrival-date" id="arrivalDate" value="" min="" name="arrive" required>
             <button class="show-avail-button" id="checkAvailability">Check Availability</button>
           </form>
           <section class="avail-cards" id="availableCards">

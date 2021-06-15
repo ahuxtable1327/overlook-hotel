@@ -13,7 +13,8 @@ import apiCalls from './apiCalls'
 let dayjs = require('dayjs');
 
 let guest, room, booking, hotel;
-let guestData, rooms, bookings;
+let guestData, roomsData, bookingsData;
+let rooms, bookings;
 
 const bookStay = document.getElementById('bookStay');
 const checkAvailability = document.getElementById('checkAvailability');
@@ -21,6 +22,14 @@ const availableCards = document.getElementById('availableCards');
 const selectedRoom = document.getElementById('selectedRoom');
 const bookedRoom = document.getElementById('bookedRoom');
 const form = document.getElementById('calendarForm');
+const loginBtn = document.getElementById('loginBtn');
+const usernameField = document.getElementById('usernameField');
+const passwordField = document.getElementById('passwordField');
+const signInError = document.getElementById('signInError');
+const logInView = document.getElementById('logInView');
+const mainPage = document.getElementById('main');
+
+
 
 
 window.addEventListener('load', loadPageInfo);
@@ -31,25 +40,51 @@ availableCards.addEventListener('click', function() {
 })
 selectedRoom.addEventListener('click', function() {
   addNewBooking(event);
-})
-selectedRoom.addEventListener('click', function() {
   closeSelectedRoom(event);
 })
-
+loginBtn.addEventListener('click', logInUser);
 
 export function loadPageInfo(){
   apiCalls.getData()
     .then(response => {
       guestData = response[0].customers;
-      rooms = response[1].rooms;
-      bookings = response[2].bookings;
-      guest = new Guest(guestData[5]);
+      roomsData = response[1].rooms;
+      bookingsData = response[2].bookings;
+      instantiateRooms(roomsData);
+      instantiateBookings(bookingsData)
+      // guest = new Guest(guestData[5]);
       hotel = new Hotel(rooms, bookings)
       domUpdates.displayGuestDashboard(guest, rooms, bookings, hotel)
-      console.log(bookings, 'inside')
     })
     console.log(bookings, 'outside')
 
+}
+
+function getUser(customerID){
+  apiCalls.fetchUser(customerID)
+    .then(response => {
+      let currentUser = response
+      guest = new Guest(currentUser);
+      loadPageInfo();
+  })
+}
+
+function instantiateRooms(roomsData) {
+  rooms = [];
+  roomsData.forEach(singleRoom => {
+    room = new Room(singleRoom);
+    rooms.push(singleRoom);
+  })
+  return rooms
+}
+
+function instantiateBookings(bookingsData) {
+  bookings = [];
+  bookingsData.forEach(singleBooking => {
+    booking = new Booking(singleBooking)
+    bookings.push(singleBooking);
+  })
+  return bookings
 }
 
 function displayBookingPage() {
@@ -71,7 +106,7 @@ function displaySelectedRoom(event) {
 
 function closeSelectedRoom(event) {
   if (event.target.className === 'close-selection') {
-    selectedRoom.classList.add('hidden');
+    selectedRoom.classList.add('hide');
   }
 }
 
@@ -85,3 +120,16 @@ function addNewBooking(event) {
     }
 
   }
+
+function logInUser() {
+  let username = usernameField.value
+  let password = passwordField.value
+  let customerID;
+
+  if(username.startsWith('customer') && password === 'overlook2021'){
+     customerID = parseInt(username.split('customer')[1])
+  }
+  logInView.classList.add('hidden');
+  mainPage.classList.remove('hidden');
+  getUser(customerID)
+}

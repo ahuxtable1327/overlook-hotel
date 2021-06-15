@@ -20,6 +20,7 @@ const fetchBookingData = () => {
 
 const fetchUser = (id) => {
   return fetch(`http://localhost:3001/api/v1/customers/${id}`)
+    // .then(checkForLoginError(id))
     .then(response => response.json())
     .catch(err => console.error('Something went wrong with user'))
 }
@@ -53,4 +54,7 @@ const checkForError = (response) => {
   }
 }
 
-export default { getData, postData };
+
+
+
+export default { getData, postData, fetchUser };

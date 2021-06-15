@@ -109,10 +109,6 @@ button:active {
   // align-self: baseline;
 // }
 
-.hidden {
-  display: none;
-}
-
 @media screen and (min-width: $small-tablet) {
   .booking-cards,
   .avail-cards {
@@ -189,4 +185,14 @@ button:active {
     height: 5vh;
     font-size: 1.5vw;
   }
+}
+
+.hidden {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.hide {
+  display: none;
 }
