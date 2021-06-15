@@ -120,6 +120,7 @@ function addNewBooking(event) {
 
     apiCalls.postData(user, dateSelected, roomNum)
     }
+    // setTimeout()
 
   }
 

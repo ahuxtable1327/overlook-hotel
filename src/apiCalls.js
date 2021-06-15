@@ -1,4 +1,5 @@
 import { loadPageInfo } from './scripts'
+import domUpdates from './domUpdates'
 
 const fetchGuestData = () => {
   return fetch('http://localhost:3001/api/v1/customers')
@@ -50,6 +51,7 @@ const checkForError = (response) => {
   if(!response.ok) {
     throw new Error('Something went wrong')
   } else {
+    domUpdates.displaySuccess();
     return response.json();
   }
 }

@@ -98,7 +98,7 @@ const domUpdates = {
 
   renderAvailableRooms(guest, bookings, rooms, hotel) {
     availableCards.innerHTML = ''
-    let date = arrivalDate.value
+    let date = dayjs(arrivalDate.value).format('YYYY/MM/DD');
     if(searchOptions.value === 'empty') {
       hotel.getAvailableRooms(date);
     }
@@ -143,7 +143,7 @@ const domUpdates = {
         <p class="cost">$${currentRoom.costPerNight}</p>
         <section class="booked-room" id="bookedRoom">
           <button id="${currentRoom.number}" class="book-room-btn">Book Room!</button>
-          <p class="success-msg hidden" id="successMsg">Your booking was added successfully!</p>
+          <p class="success-msg" id="successMsg"></p>
         </section>
       </article>
     </section>
@@ -153,6 +153,11 @@ const domUpdates = {
   displaySignInError(){
     const signInError = document.getElementById('signInError');
     signInError.innerHTML = 'Sorry, the username or password does not match'
+  },
+
+  displaySuccess(){
+    const successMsg = document.getElementById('successMsg');
+    successMsg.innerText = 'Your booking was added successfully!'
   }
 
 }
