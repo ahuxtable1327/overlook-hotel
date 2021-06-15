@@ -35,6 +35,8 @@ const domUpdates = {
   },
 
   displayGuestDashboard(guest, bookings, rooms, hotel) {
+    console.log('working')
+    console.log(guest);
     const bookingCards = document.getElementById('bookingCards');
     const totalGuestCosts = document.getElementById('totalGuestCosts');
     let bookingType;
@@ -87,6 +89,11 @@ const domUpdates = {
     document.getElementById('arrivalDate').setAttribute("value", today);
 
 
+  },
+
+  goHome(){
+    this.hideElement(roomAvailability);
+    this.showElement(guestPage);
   },
 
   renderBookingForm() {

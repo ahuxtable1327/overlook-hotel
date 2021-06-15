@@ -29,6 +29,7 @@ const logInView = document.getElementById('logInView');
 const mainPage = document.getElementById('main');
 const logInForm = document.getElementById('logInForm');
 const newUser = document.getElementById('changeUserBtn');
+const homeBtn = document.getElementById('goHome');
 
 
 
@@ -45,6 +46,7 @@ selectedRoom.addEventListener('click', function() {
 })
 loginBtn.addEventListener('click', logInUser);
 newUser.addEventListener('click', changeUser);
+homeBtn.addEventListener('click', returnHome);
 
 export function loadPageInfo(){
   apiCalls.getData()
@@ -156,4 +158,9 @@ function logIn(customerID){
 
 function changeUser(){
   location.reload();
+}
+
+function returnHome(){
+  domUpdates.goHome();
+  loadPageInfo();
 }
