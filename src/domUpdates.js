@@ -96,8 +96,8 @@ const domUpdates = {
   },
 
   renderAvailableRooms(guest, bookings, rooms, hotel) {
+    availableCards.innerHTML = ''
     let date = arrivalDate.value
-    console.log('working')
     if(searchOptions.value === 'empty') {
       hotel.getAvailableRooms(date);
     }
@@ -122,6 +122,7 @@ const domUpdates = {
   },
 
   renderSelectedRoom(currentRoom) {
+    selectedRoom.innerHTML
     let date = arrivalDate.value;
     this.showElement(selectedRoom);
     let hasBidet;

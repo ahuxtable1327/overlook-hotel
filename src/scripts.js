@@ -20,6 +20,7 @@ const checkAvailability = document.getElementById('checkAvailability');
 const availableCards = document.getElementById('availableCards');
 const selectedRoom = document.getElementById('selectedRoom');
 const bookedRoom = document.getElementById('bookedRoom');
+const form = document.getElementById('calendarForm');
 
 
 window.addEventListener('load', loadPageInfo);
@@ -58,6 +59,8 @@ function displayBookingPage() {
 function displayAvailableRooms() {
   event.preventDefault();
   domUpdates.renderAvailableRooms(guest, bookings, rooms, hotel);
+  form.reset();
+
 }
 
 function displaySelectedRoom(event) {
@@ -80,4 +83,5 @@ function addNewBooking(event) {
 
     apiCalls.postData(user, dateSelected, roomNum)
     }
+
   }
