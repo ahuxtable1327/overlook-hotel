@@ -34,7 +34,7 @@ nav{
 // Text Elements
 h1{
   font-family: 'Pattaya', sans-serif;
-  font-size: 7vw;
+  font-size: 5vw;
 }
 
 h2{
@@ -77,21 +77,37 @@ main {
   grid-gap: 5rem;
 }
 
-button {
-  @include buttons();
-
+.calendar{
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-around;
+  align-items: center;
+  margin: 1rem;
+  font-size: 3vw;
+}
+label {
+  margin: 0.7rem;
 }
 
-footer{
-  @include mainFlex();
-  background-color: $black-olive;
-  color: $snow;
+button {
+  @include buttons();
+}
+button:hover,
+button:active {
+  background-color: $gray-web;
+  color: white;
+}
+
+// footer{
+//   @include mainFlex();
+//   background-color: $black-olive;
+//   color: $snow;
   // position: absolute;;
   // bottom: 0;
   // width: 100vw;
   // padding: 0.5rem;
   // align-self: baseline;
-}
+// }
 
 .hidden {
   display: none;
@@ -116,5 +132,32 @@ footer{
     grid-template-rows: 1fr;
     padding: 3rem;
     grid-gap: 2rem;
+  }
+
+  .calendar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem;
+    font-size: 2.3vw;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .booking-cards,
+  .avail-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    padding: 3rem;
+    grid-gap: 2rem;
+  }
+
+  .calendar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem;
+    font-size: 2.3vw;
   }
 }

@@ -3,7 +3,7 @@
 
 .room-select{
   @include mainFlex();
-  position: absolute;
+  position: fixed;
   left: 20vw;
   top: 25vh;
   background-color: $white;

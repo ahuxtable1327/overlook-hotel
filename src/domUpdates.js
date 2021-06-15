@@ -107,7 +107,6 @@ const domUpdates = {
     }
     hotel.availableRooms.forEach(room => {
       availableCards.innerHTML += `
-      <section class="avail-cards" id="availableCards">
         <article class="cards">
           <h3>${room.roomType}</h3>
           <img src="./images/room.jpg" alt="breezy room with king bed overlooking the sea">
@@ -116,7 +115,6 @@ const domUpdates = {
           <p class="cost">$${room.costPerNight} per night</p>
           <button id="${room.number}" class="select-room">View</button>
         </article>
-      </section>
       `
     })
   },

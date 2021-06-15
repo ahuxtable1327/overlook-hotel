@@ -39,5 +39,13 @@ img {
 }
 
 .select-room{
+  background-color: $snow;
   width: 20vw;
+  height: 5vh;
+  margin: 0.3rem;
+}
+
+.select-room:hover,
+.select-room:active{
+  background-color: $satin-sheen-gold;
 }
