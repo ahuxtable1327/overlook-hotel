@@ -127,6 +127,11 @@ button:active {
     padding: 3rem;
     grid-gap: 2rem;
   }
+  button{
+    width: 20vw;
+    height: 5vh;
+    font-size: 1.5vw;
+  }
 }
 
 @media screen and (min-width: $large-tablet) {
@@ -137,6 +142,12 @@ button:active {
     grid-template-rows: 1fr;
     padding: 3rem;
     grid-gap: 2rem;
+  }
+
+  .main-greet-p{
+    font-size: 2.5vw;
+    width: 70vw;
+    text-align: center;
   }
 
   .calendar{
@@ -162,6 +173,13 @@ button:active {
     grid-template-rows: 1fr;
     padding: 3rem;
     grid-gap: 2rem;
+  }
+
+  .main-greet-p{
+    font-size: 2.5vw;
+    width: 70vw;
+    text-align: center;
+
   }
 
   .calendar{

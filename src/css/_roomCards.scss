@@ -18,7 +18,12 @@
   margin: 0 0 1vh 10vw;
   background-color: $gray-web;
   border: 2px solid $black-olive;
+}
+
+.cards:hover {
+  transform: scale(1.1);
   box-shadow: 7px 3px 3px $satin-sheen-gold;
+
 }
 
 img {
@@ -55,4 +60,33 @@ img {
 .select-room:hover,
 .select-room:active{
   background-color: $satin-sheen-gold;
+}
+
+@media screen and (min-width: $small-tablet) {
+  .cards{
+    max-width: 100vw;
+    height: auto;
+    width: 100%;
+    margin: 0;
+
+  }
+}
+
+@media screen and (min-width: $large-tablet) {
+  .cards{
+    max-width: 100vw;
+    height: auto;
+    width: 100%;
+    margin: 0;
+
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .cards{
+    max-width: 100vw;
+    height: auto;
+    width: 100%;
+    margin: 0;
+  }
 }
