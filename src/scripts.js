@@ -147,7 +147,6 @@ function verifyUser(customerID, password){
     logIn(customerID);
   }
   logInForm.reset();
-
 }
 
 function logIn(customerID){
