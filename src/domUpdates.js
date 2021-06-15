@@ -35,6 +35,8 @@ const domUpdates = {
   },
 
   displayGuestDashboard(guest, bookings, rooms, hotel) {
+    console.log('working')
+    console.log(guest);
     const bookingCards = document.getElementById('bookingCards');
     const totalGuestCosts = document.getElementById('totalGuestCosts');
     let bookingType;
@@ -89,6 +91,11 @@ const domUpdates = {
 
   },
 
+  goHome(){
+    this.hideElement(roomAvailability);
+    this.showElement(guestPage);
+  },
+
   renderBookingForm() {
     this.setDate();
     this.hideElement(guestPage);
@@ -98,7 +105,7 @@ const domUpdates = {
 
   renderAvailableRooms(guest, bookings, rooms, hotel) {
     availableCards.innerHTML = ''
-    let date = arrivalDate.value
+    let date = dayjs(arrivalDate.value).format('YYYY/MM/DD');
     if(searchOptions.value === 'empty') {
       hotel.getAvailableRooms(date);
     }
@@ -106,18 +113,23 @@ const domUpdates = {
       let type = searchOptions.value.toLowerCase();
       hotel.getRoomsAvailableByType(date, type);
     }
-    hotel.availableRooms.forEach(room => {
-      availableCards.innerHTML += `
-        <article class="cards">
-          <h3>${room.roomType}</h3>
-          <img src="./images/room.jpg" alt="breezy room with king bed overlooking the sea">
-          <p class="date">Available for ${date}</p>
-          <p class="room-type">${room.bedSize} bed</p>
-          <p class="cost">$${room.costPerNight} per night</p>
-          <button id="${room.number}" class="select-room">View</button>
-        </article>
-      `
-    })
+
+    if(hotel.availableRooms.length === 0) {
+      this.displayNoRoomsError();
+    } else {
+      hotel.availableRooms.forEach(room => {
+        availableCards.innerHTML += `
+          <article class="cards">
+            <h3>${room.roomType}</h3>
+            <img src="./images/room.jpg" alt="breezy room with king bed overlooking the sea">
+            <p class="date">Available for ${date}</p>
+            <p class="room-type">${room.bedSize} bed</p>
+            <p class="cost">$${room.costPerNight} per night</p>
+            <button id="${room.number}" class="select-room">View</button>
+          </article>
+        `
+      })
+    }
   },
 
   renderSelectedRoom(currentRoom) {
@@ -143,16 +155,28 @@ const domUpdates = {
         <p class="cost">$${currentRoom.costPerNight}</p>
         <section class="booked-room" id="bookedRoom">
           <button id="${currentRoom.number}" class="book-room-btn">Book Room!</button>
-          <p class="success-msg hidden" id="successMsg">Your booking was added successfully!</p>
+          <p class="success-msg" id="successMsg"></p>
         </section>
       </article>
     </section>
     `
   },
 
+  displayNoRoomsError(){
+    const noRooms = document.getElementById('noRoomsError');
+    console.log(noRooms)
+    noRooms.innerText = 'Sorry there are no rooms available for your search requirements, please try again!'
+
+  },
+
   displaySignInError(){
     const signInError = document.getElementById('signInError');
     signInError.innerHTML = 'Sorry, the username or password does not match'
+  },
+
+  displaySuccess(){
+    const successMsg = document.getElementById('successMsg');
+    successMsg.innerText = 'Your booking was added successfully!'
   }
 
 }
