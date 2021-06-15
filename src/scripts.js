@@ -25,9 +25,9 @@ const form = document.getElementById('calendarForm');
 const loginBtn = document.getElementById('loginBtn');
 const usernameField = document.getElementById('usernameField');
 const passwordField = document.getElementById('passwordField');
-const signInError = document.getElementById('signInError');
 const logInView = document.getElementById('logInView');
 const mainPage = document.getElementById('main');
+const logInForm = document.getElementById('logInForm');
 
 
 
@@ -129,6 +129,23 @@ function logInUser() {
   if(username.startsWith('customer') && password === 'overlook2021'){
      customerID = parseInt(username.split('customer')[1])
   }
+  verifyUser(customerID, password);
+
+}
+
+function verifyUser(customerID, password){
+  guestData.find(guest => guest.id === customerID)
+  if (!guestData.find(guest => guest.id === customerID) ||
+    password !== 'overlook2021') {
+    domUpdates.displaySignInError();
+  } else {
+    logIn(customerID);
+  }
+  logInForm.reset();
+
+}
+
+function logIn(customerID){
   logInView.classList.add('hidden');
   mainPage.classList.remove('hidden');
   getUser(customerID)
