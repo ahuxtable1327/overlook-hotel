@@ -7,13 +7,20 @@ Welcome to OverlookHotel. Famed for it's views *and* it's history. As a user, yo
 
 #### Login View
 
-#### Dashboard View / Book a Trip
+![login](https://user-images.githubusercontent.com/78318468/122140936-8f5a0100-ce09-11eb-9e28-b3f1ca76b596.gif)
 
+#### Dashboard View 
 
-#### Filter Trips by Status
+![userBookings](https://user-images.githubusercontent.com/78318468/122140996-abf63900-ce09-11eb-8acf-dc65e9f7bd4e.gif)
 
+#### Book a Room
+
+![bookRoom](https://user-images.githubusercontent.com/78318468/122141032-bca6af00-ce09-11eb-9cde-6402f663eb06.gif)
 
 #### Mobile View/Responsive
+
+<img src="https://user-images.githubusercontent.com/78318468/122141057-ca5c3480-ce09-11eb-8118-e629e9f4735d.gif" width="300" height="642"/>
+
 
 
 ### Setup
