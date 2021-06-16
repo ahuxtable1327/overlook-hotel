@@ -30,17 +30,7 @@ const domUpdates = {
     element.classList.remove('hidden')
   },
 
-  displayMainPage(rooms) {
-    const bookingCards = document.getElementById('bookingCards');
-
-    bookingCards.innerHTML = '';
-
-
-  },
-
   displayGuestDashboard(guest, bookings, rooms, hotel) {
-    console.log('working')
-    console.log(today);
     const bookingCards = document.getElementById('bookingCards');
     const totalGuestCosts = document.getElementById('totalGuestCosts');
     let bookingType;
@@ -120,9 +110,10 @@ const domUpdates = {
   },
 
   renderSelectedRoom(currentRoom) {
-    selectedRoom.innerHTML
+    selectedRoom.innerHTML = ''
     let date = dayjs(arrivalDate.value).format('YYYY/MM/DD');
     this.showElement(selectedRoom);
+    selectedRoom.classList.remove('hide');
     let hasBidet;
     if(currentRoom.bidet) {
       hasBidet = 'Yes'
@@ -152,7 +143,6 @@ const domUpdates = {
   displayNoRoomsError(){
     const noRooms = document.getElementById('noRoomsError');
     noRooms.innerText = 'Sorry there are no rooms available for your search requirements, please try again!'
-
   },
 
   displaySignInError(){

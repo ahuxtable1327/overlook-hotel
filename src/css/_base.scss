@@ -63,14 +63,7 @@ h4{
   margin: 1rem;
 }
 
-// .book-button{
-//   font-size: 2vw;
-// }
-
 main {
-  // position: relative;
-  // min-height: 100vh;
-  // overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows:  1.5fr;
@@ -81,7 +74,6 @@ main {
 .calendar{
   display: flex;
   flex-direction: column;
-  // justify-content: space-around;
   align-items: center;
   margin: 1rem;
   font-size: 3vw;
@@ -106,17 +98,6 @@ button:active {
   background-color: $gray-web;
   color: white;
 }
-
-// footer{
-//   @include mainFlex();
-//   background-color: $black-olive;
-//   color: $snow;
-  // position: absolute;;
-  // bottom: 0;
-  // width: 100vw;
-  // padding: 0.5rem;
-  // align-self: baseline;
-// }
 
 @media screen and (min-width: $small-tablet) {
   .booking-cards,
