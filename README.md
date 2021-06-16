@@ -28,6 +28,8 @@ Welcome to OverlookHotel. Famed for it's views *and* it's history. As a user, yo
 - `cd` into the repository on your local machine
 - Run `npm install`
 - Run `npm start`
+
+A local API was used to retrieve data for this project. Below is the link to the API and instructions for using it. 
 - `git clone` this [API repository](https://github.com/turingschool-examples/overlook-api)
 - Run `npm install`
 - Run `npm start`
@@ -39,8 +41,13 @@ Welcome to OverlookHotel. Famed for it's views *and* it's history. As a user, yo
 - Semantic HTML
 - SCSS/Sass
 - Mocha & Chai
-- Local API
 - WebPack
+
+### Libraries
+- [DAY.JS](https://www.npmjs.com/package/dayjs) used for:
+  - getting 'todays' date and setting it on the calendar
+  - formatting the date   
+
 
 ### Future Additions
 - Build out a more dynamic login page
