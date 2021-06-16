@@ -8,7 +8,6 @@ import Booking from './classes/Booking'
 import Room from './classes/Room'
 import domUpdates from './domUpdates'
 import apiCalls from './apiCalls'
-// import postData from './apiCalls'
 
 let dayjs = require('dayjs');
 
@@ -59,7 +58,6 @@ export function loadPageInfo(){
       hotel = new Hotel(rooms, bookings)
       domUpdates.displayGuestDashboard(guest, rooms, bookings, hotel)
     })
-    console.log(bookings)
 }
 
 function getUser(customerID){
@@ -69,7 +67,6 @@ function getUser(customerID){
       guest = new Guest(currentUser);
       loadPageInfo();
   })
-
 }
 
 function instantiateRooms(roomsData) {
@@ -119,9 +116,8 @@ function addNewBooking(event) {
     const roomNum = parseInt(event.target.id)
 
     apiCalls.postData(user, dateSelected, roomNum)
-    }
     setTimeout(returnHome, 2000);
-
+    }
   }
 
 function logInUser() {
@@ -133,7 +129,6 @@ function logInUser() {
      customerID = parseInt(username.split('customer')[1])
   }
   verifyUser(customerID, password);
-
 }
 
 function verifyUser(customerID, password){
@@ -151,7 +146,6 @@ function logIn(customerID){
   logInView.classList.add('hidden');
   mainPage.classList.remove('hidden');
   getUser(customerID)
-
 }
 
 function changeUser(){
